@@ -11,12 +11,9 @@
 // 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 
 function digital_root(n) {
-    let a = n.toString().split('').map(el => +el).reduce((acc, el) => acc + el)
-    if (a.toString().length !== 1) {
-        a = a.toString().split('').map(el => +el).reduce((acc, el) => acc + el)
+    let sum = n
+    while (sum > 9) {
+        sum = sum.toString().split('').map(el => +el).reduce((acc, el) => acc + el)
     }
-    if (a.toString().length !== 1) {
-        a = a.toString().split('').map(el => +el).reduce((acc, el) => acc + el)
-    }
-    return a
+    return sum
 }
